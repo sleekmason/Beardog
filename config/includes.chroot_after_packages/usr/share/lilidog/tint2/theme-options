@@ -1,0 +1,5 @@
+Appearance Settings,        xfce4-appearance-settings,                preferences-system
+Installers,                 ld-installers,                            applications-utilities
+Menu Adjustments,           jgmenu-interactive,                       jgmenu
+Openbox Settings,           obconf,                                   obconf
+Wallpapers,                 feh-set-wallpaper,                        org.xfce.settings.display
