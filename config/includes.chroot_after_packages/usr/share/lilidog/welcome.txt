@@ -8,6 +8,6 @@
 
     https://www.forum.lilidog.org/
     
-    Please be aware that the Bare version doesn't
-    contain a login manager. Upon install, simply
-    type your user name and password to enter.
+    This is the minimal version allowing the user
+    to select their own packages. For a complete 
+    setup, install the Lilidog full version.

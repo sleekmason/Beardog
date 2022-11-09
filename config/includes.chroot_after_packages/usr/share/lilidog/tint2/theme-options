@@ -1,6 +1,7 @@
 Appearance Settings,        xfce4-appearance-settings,                preferences-system
 Installers,                 ld-installers,                            applications-utilities
 Menu Icons,                 jg-icon-changer,                          jgmenu
+Menu theme,                 jg-menu-theme,                            applications-graphics
 Sounds,                     notification-sounds,                      audio-headphones
 Openbox Settings,           obconf,                                   obconf
 Wallpapers,                 feh-set-wallpaper,                        org.xfce.settings.display

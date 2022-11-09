@@ -6,7 +6,7 @@ noti=$(yad --width 444 --borders=10 --entry --title "Jgmenu Icon & Font Options"
     --button="Install Icons"!/usr/share/icons/Adwaita/22x22/legacy/applications-graphics.png!:"popup -f /usr/share/lilidog/installers/icons &" \
     --button=" Font Size"!/usr/share/icons/Adwaita/22x22/legacy/applications-office.png:"jg-font-size" \
     --button="gtk-ok:0" \
-    --text "  Breeze-Dark and Gnome icons pre installed. \n  See 'Install Icons' below for additional themes.\n" \
+    --text "  Adwaita Icons Installed. \n  Use 'Install Icons' for more themes.\n" \
     --entry-text \
     "Please Select Menu Icon Theme" "Gnome" "Breeze" "Breeze-Dark - Default Theme" "Dark Papirus" "Light Papirus" "Numix Circle" "Faenza" "Paper" "Off")
 
