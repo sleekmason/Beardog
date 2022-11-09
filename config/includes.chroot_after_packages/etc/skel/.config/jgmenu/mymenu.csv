@@ -33,6 +33,7 @@ Color Chooser,      yad --color,                      org.xfce.settings.color
 Install Extras,     ld-installers,                     applications-utilities
 
 ^tag(toggles)
+Jgmenu,              jg-icon-changer,                               preferences-system
 Hotcorners,          toggle.ld,                                     preferences-system
 Random BG,           toggle-wallpaper-random,                       preferences-system
 Tint2 Options,       tint2-options,                                 preferences-system
@@ -40,6 +41,7 @@ Mouse Finder,        toggle-mouse-pointer,                          preferences-
 Tint2 Toggle,        toggle.tint2,                                  preferences-system
 Auto Login,          lightdm-autologin,                             preferences-system
 Touchpad,            toggle-touchpad,                               preferences-system
+Sounds,              notification-sounds,                           preferences-system
 Xkill,               xkill,                                         edit-delete
 
 ^tag(rootfiles)

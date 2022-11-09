@@ -28,6 +28,6 @@ tint2 &
 nm-applet &
 lxpolkit &
 xfsettingsd --daemon &
-volumeicon &
+pnmixer &
 sxhkd -c "$HOME/.config/openbox/sxhkdrc-open" &
 welcome.sh &
