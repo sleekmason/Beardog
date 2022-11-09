@@ -4,7 +4,7 @@
 
 logi=$(yad --width 300 --borders=10 --entry --title "Auto Login" --center --window-icon=applications-system \
     --image="user-info" \
-    --button="gtk-ok:0" --button="gtk-close:0" \
+    --button="gtk-ok:0" \
     --text "Auto Login Options" \
     --entry-text \
     "Please Select" "Disable Auto Login" "Enable Auto login")
