@@ -19,6 +19,8 @@ nm-applet &
 if hash sxhkd >/dev/null 2>&1; then
 	pkill sxhkd
 	sxhkd -c "$HOME/.config/dk/sxhkdrc" &
+else
+sxhkd -c "$HOME/.config/dk/sxhkdrc" &
 fi
 
 { # compound command to redirect all output
