@@ -74,14 +74,14 @@ mod4 + u
 
 # terminal
 mod4 + Return
-	xfce4-terminal
+	lxterminal
 
 mod4 + t
-    xfce4-terminal
+    lxterminal
     
 # File manager	
 mod4 + f
-    thunar
+    pcmanfm
 
 # Editor
 mod4 + e

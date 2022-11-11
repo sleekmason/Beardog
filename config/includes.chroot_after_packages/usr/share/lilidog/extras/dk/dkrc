@@ -15,13 +15,8 @@ lxpolkit &
 picom &
 polybar -c ~/.config/polybar/config lili-bar &
 nm-applet &
-# (re)load sxhkd for keybinds
-if hash sxhkd >/dev/null 2>&1; then
-	pkill sxhkd
-	sxhkd -c "$HOME/.config/dk/sxhkdrc" &
-else
+killall sxhkd &
 sxhkd -c "$HOME/.config/dk/sxhkdrc" &
-fi
 
 { # compound command to redirect all output
 
