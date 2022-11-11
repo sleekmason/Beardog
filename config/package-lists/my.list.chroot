@@ -56,7 +56,6 @@ gvfs
 gvfs-backends
 gvfs-fuse
 hdparm
-htop
 intel-microcode
 inxi
 isc-dhcp-client
