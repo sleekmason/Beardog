@@ -14,6 +14,8 @@ console-data
 console-setup
 cpio
 crda
+cryptsetup
+cryptsetup-initramfs
 curl
 dbus-user-session
 dbus-x11
