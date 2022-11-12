@@ -44,7 +44,6 @@ firmware-linux
 firmware-linux-free
 firmware-libertas
 firmware-misc-nonfree
-fonts-noto
 fuse3
 gettext-base
 gir1.2-gtk-3.0
@@ -57,7 +56,6 @@ gvfs-backends
 gvfs-fuse
 hdparm
 intel-microcode
-inxi
 isc-dhcp-client
 iw
 kbd
