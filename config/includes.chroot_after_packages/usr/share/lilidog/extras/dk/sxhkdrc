@@ -3,7 +3,7 @@
 
 # This List as a cheatsheet.txt
 mod4 + l
-    geany ~/.config/dk/keys-cheatsheet.txt
+    mousepad ~/.config/dk/keys-cheatsheet.txt
 
 # jgmenu
 mod4 + F1
@@ -85,7 +85,7 @@ mod4 + f
 
 # Editor
 mod4 + e
-    geany  
+    mousepad  
 
 # Music
 mod4 + m

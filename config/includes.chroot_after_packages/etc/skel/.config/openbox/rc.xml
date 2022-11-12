@@ -42,7 +42,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Arcadiabox</name>
+    <name>Denimbox</name>
     <titleLayout>NSLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -322,15 +322,15 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
-    <keybind key="W-e">
+<!--   <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
           <name>Konqueror</name>
         </startupnotify>
-        <command>mousepad</command>
+        <command>geany</command>
       </action>
-    </keybind>
+    </keybind> -->
     <!-- Launch scrot when Print is pressed -->
     <keybind key="Print">
       <action name="Execute">
