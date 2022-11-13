@@ -207,7 +207,7 @@ ac_disconnected_cmd =
 #-------------------------------------
 # Button 1
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/m.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/m.png
 button_text = 
 button_tooltip = Left Click = Menu - Right Click = Icon Menu
 button_lclick_command = jgmenu_run &
@@ -225,7 +225,7 @@ button_max_icon_size = 20
 #-------------------------------------
 # Button 2
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/hotcorners.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/hotcorners.png
 button_text = 
 button_tooltip = Hotcorners Toggle
 button_lclick_command = toggle.ld
@@ -242,7 +242,7 @@ button_max_icon_size = 16
 #-------------------------------------
 # Button 3
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/down.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/down.png
 button_text = 
 button_tooltip = Minimize All
 button_lclick_command = xdotool key super+d
@@ -259,7 +259,7 @@ button_max_icon_size = 16
 #-------------------------------------
 # Button 4
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/paw-theme.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/paw-theme.png
 button_text = 
 button_tooltip = Quick Settings
 button_lclick_command = popup -f /usr/share/lilidog/tint2/theme-options &
@@ -276,7 +276,7 @@ button_max_icon_size = 20
 #-------------------------------------
 # Button 5
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/r.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/r.png
 button_text = 
 button_tooltip = Left Click = Places Menu - Right Click = Recents Menu
 button_lclick_command = popup -o places-pipemenu &
@@ -293,7 +293,7 @@ button_max_icon_size = 20
 #-------------------------------------
 # Button 6
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/t2.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/t2.png
 button_text = 
 button_tooltip = Tint2 Options - Middle Click = Tint2 Configuration
 button_lclick_command = popup -f /usr/share/lilidog/tint2/options &
@@ -310,7 +310,7 @@ button_max_icon_size = 20
 #-------------------------------------
 # Button 7
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/upgrade.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/upgrade.png
 button_text = 
 button_tooltip = LD Installers
 button_lclick_command = ld-installers &
@@ -327,7 +327,7 @@ button_max_icon_size = 24
 #-------------------------------------
 # Button 8
 button = new
-button_icon = /usr/share/icons/ld-icons/tint2plain/exit.png
+button_icon = /usr/share/icons/ld-icons/coltint2grey/exit.png
 button_text = 
 button_tooltip = Exit
 button_lclick_command = ld-logout
