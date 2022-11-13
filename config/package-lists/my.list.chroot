@@ -139,7 +139,6 @@ user-setup
 uuid-runtime
 va-driver-all
 vdpau-driver-all
-volumeicon-alsa
 wget
 wmctrl
 x11-apps
