@@ -47,11 +47,11 @@ case $noti in
 ;;
   Navy*)
   notify-send --urgency low 'Changing Tint2 text to Bright Grey' ;
-         sed -i 's/task_font_color =.*/task_font_color = \#96BAD9 100/' $FILE
-         sed -i 's/clock_font_color =.*/clock_font_color = \#96BAD9 100/' $FILE
-         sed -i 's/execp_font_color =.*/execp_font_color = \#96BAD9 100/' $FILE
-         sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#96BAD9 100/' $FILE
-         sed -i 's/^battery_font_color.*/battery_font_color = #96BAD9 100/g' $FILE
+         sed -i 's/task_font_color =.*/task_font_color = \#9CBDD9 100/' $FILE
+         sed -i 's/clock_font_color =.*/clock_font_color = \#9CBDD9 100/' $FILE
+         sed -i 's/execp_font_color =.*/execp_font_color = \#9CBDD9 100/' $FILE
+         sed -i 's/tooltip_font_color =.*/tooltip_font_color = \#9CBDD9 100/' $FILE
+         sed -i 's/^battery_font_color.*/battery_font_color = #9CBDD9 100/g' $FILE
      killall -SIGUSR1 tint2
 ;;
    Indigo)
