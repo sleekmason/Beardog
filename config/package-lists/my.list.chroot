@@ -22,7 +22,6 @@ dbus-x11
 desktop-base
 dialog
 dosfstools
-dunst
 e2fsprogs
 efibootmgr
 eject
@@ -46,7 +45,6 @@ firmware-libertas
 firmware-misc-nonfree
 fuse3
 gettext-base
-gir1.2-gtk-3.0
 gnupg
 gparted
 gtk2-engines-murrine
@@ -68,8 +66,6 @@ liblockfile-bin
 libnotify-bin
 libnss-systemd
 libqt5svg5
-lightdm
-lightdm-gtk-greeter-settings
 locales
 lsb-release
 lxpolkit
@@ -106,7 +102,6 @@ publicsuffix
 pulseaudio
 pulseaudio-utils
 python3-distro
-python3-gi
 python3-notify2
 python3-pyxattr
 python3-pycurl

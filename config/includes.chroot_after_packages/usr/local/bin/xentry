@@ -1,0 +1,167 @@
+#!/bin/bash
+
+PROGNAME="xentry"
+[ "$USER" != "root" ] && 
+   echo -e "\t$PROGNAME must be run as root. \n\tOr with \`sudo $PROGNAME\` ." && exit
+
+### Our options are going to be
+#    = "full output to the terminal, no stopping."
+# -i = "interactive"
+# -q = "interactive but suppressed output"
+OPTIND="0"
+for i in  _quiet _interactive ; do unset -v $i ; done
+
+while getopts 'iq' OPTION; do
+    case "$OPTION" in
+      i)
+	_interactive="yes"
+	echo -e " Entering interactive mode to customize Beardog\n"
+	break
+      ;;
+
+      q)
+	_quiet="yes"
+	echo -e " Entering interactive mode, without verbose output.\n"
+	break
+      ;;
+
+      ?)
+	echo "Usage: $(basename ${PROGNAME}) [-i = interactive] [-q = suppressed ouput]"
+	return 1
+      ;;
+  esac
+done
+
+[ "$(which nala)" ] && PkgMgr="nala" || PkgMgr="apt"
+
+see_it() {
+	[ "$_interactive" = "yes" ] && ( read -n1 -p " $_msg \"Y/n\" " answ
+	[ -z $answ ] || [ "$answ" = "y" ] || [ "$answ" = "Y" ] && echo &&
+	do_it &&
+	echo -e " $_msg - Completed.\n" ||
+	echo -e "\r $_msg - Skipped.\n" )
+}
+
+no_see() {
+	[ "$_quiet" = "yes"       ] && ( read -n1 -p " $_msg \"Y/n\" " answ
+	[ -z $answ ] || [ "$answ" = "y" ] || [ "$answ" = "Y" ] && echo &&
+	do_it > /dev/null &&
+	echo -e " $_msg - Completed.\n" ||
+	echo -e "\r $_msg - Skipped.\n" )
+}
+
+run_it() {
+	[ "$_interactive" != "yes" ] && [ "$_quiet" != "yes" ] && (
+	echo -e "\n $_msg ." &&
+	do_it &&
+	echo -e " $_msg - Completed." )
+}
+
+# Begin xDaily command functions 
+_update() {
+      _msg="Update current packages before proceeding"
+      do_it() { 
+		[ "$_quiet" != "yes" ] &&
+		apt-get update && apt-get -y upgrade
+}
+	see_it
+	no_see
+	run_it
+}
+
+_add_lightdm() {
+      _msg="Add the lightdm login manager?"
+      do_it() { apt-get install -y lightdm lightdm-gtk-greeter-settings &&
+		        cp /usr/share/lilidog/extras/lightdm/lightdm-gtk-greeter.conf /etc/lightdm ;}
+      
+        see_it
+        no_see
+        run_it
+}
+
+_add_jgmenu() {
+      _msg="Use a customized jgmenu instead of the openbox default menu?"
+      do_it() { cd /tmp &&
+		        curl -LJO https://raw.githubusercontent.com/sleekmason/packages/master/jgmenu_4.4.0-1_amd64.deb &&
+                apt-get update && apt-get install --install-recommends -y ./jgmenu_4.4.0-1_amd64.deb python3-gi gir1.2-gtk-3.0 && 
+		        cp -r /usr/share/lilidog/extras/jgmenu /home/${SUDO_USER}/.config &&
+		        mv /home/${SUDO_USER}/.config/openbox/rc.xml /home/${SUDO_USER}/.config/openbox/rc.xml.bak &&
+		        cp -r /usr/share/lilidog/extras/openbox/rc.xml /home/${SUDO_USER}/.config/openbox
+		        chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/openbox/rc.xml
+		        chown -R ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/jgmenu
+                sed -i '/Openbox/i    --field="                 Jgmenu Icons!jgmenu":FBTN "jg-icon-changer" \\' /usr/local/bin/beardog-themer
+                sed -i '/Openbox/i    --field="               Jgmenu Theme!jgmenu":FBTN "jg-menu-theme" \\' /usr/local/bin/beardog-themer 
+                openbox --reconfigure ;}
+        see_it
+        no_see
+        run_it
+}
+
+_add_notifications() {
+      _msg="Install Dunst for proper notifications with sound options?"
+      do_it() { cd /tmp &&
+		  curl -LJO https://raw.githubusercontent.com/sleekmason/packages/master/dunst.zip &&
+          unzip -q dunst.zip &&
+          cp -r /tmp/dunst /home/${SUDO_USER}/.config
+          chown -R ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/dunst 
+          apt-get install -y dunst 
+          sed -i '/System/i    --field="                           Sounds!audio-speakers":FBTN "notification-sounds" \\' /usr/local/bin/beardog-themer ;}
+        see_it
+        no_see
+        run_it
+}
+
+_add_transparency() {
+      _msg="Add transparency with picom and enable at login?"
+      do_it() { apt-get update && apt-get install --install-recommends -y picom &&
+		        cp /usr/share/lilidog/extras/picom.conf /home/${SUDO_USER}/.config
+		        sed -i '/tint2/i picom &' /home/${SUDO_USER}/.config/openbox/autostart
+		        chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/picom.conf
+		        sed -i '/Hotcorners/i Picom,               toggle.picom,                                  preferences-system' /home/${SUDO_USER}/.config/jgmenu/mymenu.csv ;}
+        see_it
+        no_see
+        run_it
+}
+
+_add_installers() {
+      _msg="Add the Lilidog installers for ease of use?"
+      do_it() { cd /tmp &&
+		  curl -LJO https://raw.githubusercontent.com/sleekmason/packages/master/ld-installers.zip &&
+		  unzip -q ld-installers.zip &&
+		  cp -a /tmp/ld-installers/. /usr/local/bin/
+          sed -i '/Openbox/i    --field="                        Installers!preferences-system":FBTN "ld-installers" \\' /usr/local/bin/beardog-themer ;}
+        see_it
+        no_see
+        run_it
+}
+
+_upgrade_kernel() {
+      _msg="Install backports kernel? - will Also add backports sources"
+      do_it() { echo 'deb http://deb.debian.org/debian bullseye-backports main' | tee /etc/apt/sources.list.d/bullseye-backports.list &&
+		        apt-get update && apt-get install -y -t bullseye-backports linux-image-amd64 firmware-linux ;}
+        see_it
+        no_see
+        run_it
+}
+
+_add_backports() {
+      _msg="Add backport sources and update without the kernel upgrade?"
+      do_it() { echo 'deb http://deb.debian.org/debian bullseye-backports main' | tee /etc/apt/sources.list.d/bullseye-backports.list &&
+		        apt-get update ;}
+        see_it
+        no_see
+        run_it
+}
+
+_update
+_add_lightdm
+_add_jgmenu
+_add_notifications
+_add_transparency
+_add_installers
+_upgrade_kernel
+_add_backports
+
+[ "$_interactive" = "yes" ] &&
+ read -n1 -p " Press any key to quit this dialog ... " answ
+echo

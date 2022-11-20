@@ -23,7 +23,6 @@
 ### Mouse Pointer Highlighter - Uncomment the line below to activate on boot.
 # highlight-pointer -r 7 --show-cursor --hide-highlight --auto-hide-highlight --key-toggle-highlight 'H-space' -c violet -p green &
 
-picom &
 tint2 &
 nm-applet &
 lxpolkit &

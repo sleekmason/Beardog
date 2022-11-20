@@ -1,0 +1,10 @@
+#!/bin/bash
+
+yad --title "Theming Options" --escape-ok \
+--button=gtk-ok:0 --form --center --width=240 --height=250 --borders=6 \
+--text="\n Beardog theme options\n" --text-align=center \
+--window-icon=applications-utilities \
+    --form \
+    --field="                        Openbox!obconf":FBTN "obconf" \
+    --field="             System Settings!preferences-system":FBTN "xfce4-settings-manager" \
+    --field="                     Wallpapers!org.xfce.settings.display":FBTN "feh-set-wallpaper" \
