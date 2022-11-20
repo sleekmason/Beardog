@@ -71,7 +71,7 @@ _update() {
 
 _add_lightdm() {
       _msg="Add the lightdm login manager?"
-      do_it() { apt-get install -y lightdm lightdm-gtk-greeter-settings &&
+      do_it() { apt-get update && apt-get install -y lightdm lightdm-gtk-greeter-settings &&
 		        cp /usr/share/lilidog/extras/lightdm/lightdm-gtk-greeter.conf /etc/lightdm ;}
       
         see_it
@@ -104,7 +104,7 @@ _add_notifications() {
           unzip -q dunst.zip &&
           cp -r /tmp/dunst /home/${SUDO_USER}/.config
           chown -R ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/dunst 
-          apt-get install -y dunst 
+          apt-get update && apt-get install -y dunst 
           sed -i '/System/i    --field="                           Sounds!audio-speakers":FBTN "notification-sounds" \\' /usr/local/bin/beardog-themer ;}
         see_it
         no_see
@@ -116,8 +116,7 @@ _add_transparency() {
       do_it() { apt-get update && apt-get install --install-recommends -y picom &&
 		        cp /usr/share/lilidog/extras/picom.conf /home/${SUDO_USER}/.config
 		        sed -i '/tint2/i picom &' /home/${SUDO_USER}/.config/openbox/autostart
-		        chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/picom.conf
-		        sed -i '/Hotcorners/i Picom,               toggle.picom,                                  preferences-system' /home/${SUDO_USER}/.config/jgmenu/mymenu.csv ;}
+		        chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/picom.conf ;}
         see_it
         no_see
         run_it

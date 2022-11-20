@@ -32,6 +32,7 @@ Color Chooser,      yad --color,                      org.xfce.settings.color
 Install Extras,     ld-installers,                    applications-utilities
 
 ^tag(toggles)
+Picom,               toggle.picom,                                  preferences-system
 Hotcorners,          toggle.ld,                                     preferences-system
 Random BG,           toggle-wallpaper-random,                       preferences-system
 Jgmenu Icons,        jg-icon-changer,                               preferences-system
