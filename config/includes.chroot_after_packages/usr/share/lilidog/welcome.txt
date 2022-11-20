@@ -12,4 +12,4 @@
    the user to install their own packages.  For a 
    complete setup, install the Lilidog full version.
 
-   Press begin below to customize a bit further.
+   Press 'Begin' to customize your new Beardog.
