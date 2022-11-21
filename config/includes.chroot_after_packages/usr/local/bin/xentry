@@ -1,8 +1,10 @@
 #!/bin/bash
+# xentry - originally xDaily from the Peppermint distro.
+# Adapted to lilidog use by sleekmason 11-21-2022
 
 PROGNAME="xentry"
 [ "$USER" != "root" ] && 
-   echo -e "\t$PROGNAME must be run as root. \n\tOr with \`sudo $PROGNAME\` ." && exit
+   echo -e "[0;31m\t$PROGNAME must be run as root, or with 'sudo $PROGNAME'[0m" && exit
 
 ### Our options are going to be
 #    = "full output to the terminal, no stopping."
@@ -15,13 +17,13 @@ while getopts 'iq' OPTION; do
     case "$OPTION" in
       i)
 	_interactive="yes"
-	echo -e " Entering interactive mode to customize Beardog\n"
+	echo -e " [0;32mEntering interactive mode to customize Beardog\n[0m"
 	break
       ;;
 
       q)
 	_quiet="yes"
-	echo -e " Entering interactive mode, without verbose output.\n"
+	echo -e " [0;32mEntering interactive mode, without verbose output.\n[0m"
 	break
       ;;
 
@@ -35,26 +37,26 @@ done
 [ "$(which nala)" ] && PkgMgr="nala" || PkgMgr="apt"
 
 see_it() {
-	[ "$_interactive" = "yes" ] && ( read -n1 -p " $_msg \"Y/n\" " answ
-	[ -z $answ ] || [ "$answ" = "y" ] || [ "$answ" = "Y" ] && echo &&
+	[ "$_interactive" = "yes" ] && ( read -r -n1 -p " $_msg \"Y/n\" " answ
+	[ -z "$answ" ] || [ "$answ" = "y" ] || [ "$answ" = "Y" ] && echo &&
 	do_it &&
-	echo -e " $_msg - Completed.\n" ||
-	echo -e "\r $_msg - Skipped.\n" )
+	echo -e " [0;32m$_msg - Completed.\n[0m" ||
+	echo -e "[0;32m\r $_msg - Skipped.\n[0m" )
 }
 
 no_see() {
-	[ "$_quiet" = "yes"       ] && ( read -n1 -p " $_msg \"Y/n\" " answ
-	[ -z $answ ] || [ "$answ" = "y" ] || [ "$answ" = "Y" ] && echo &&
+	[ "$_quiet" = "yes"       ] && ( read -r -n1 -p " $_msg \"Y/n\" " answ
+	[ -z "$answ" ] || [ "$answ" = "y" ] || [ "$answ" = "Y" ] && echo &&
 	do_it > /dev/null &&
-	echo -e " $_msg - Completed.\n" ||
-	echo -e "\r $_msg - Skipped.\n" )
+	echo -e " [0;32m$_msg - Completed.\n[0m" ||
+	echo -e "[0;32m\r $_msg - Skipped.\n[0m" )
 }
 
 run_it() {
 	[ "$_interactive" != "yes" ] && [ "$_quiet" != "yes" ] && (
 	echo -e "\n $_msg ." &&
 	do_it &&
-	echo -e " $_msg - Completed." )
+	echo -e "[0;32m $_msg - Completed.[0m" )
 }
 
 # Begin xDaily command functions 
@@ -84,14 +86,15 @@ _add_jgmenu() {
       do_it() { cd /tmp &&
 		        curl -LJO https://raw.githubusercontent.com/sleekmason/packages/master/jgmenu_4.4.0-1_amd64.deb &&
                 apt-get update && apt-get install --install-recommends -y ./jgmenu_4.4.0-1_amd64.deb python3-gi gir1.2-gtk-3.0 && 
-		        cp -r /usr/share/lilidog/extras/jgmenu /home/${SUDO_USER}/.config &&
-		        mv /home/${SUDO_USER}/.config/openbox/rc.xml /home/${SUDO_USER}/.config/openbox/rc.xml.bak &&
-		        cp -r /usr/share/lilidog/extras/openbox/rc.xml /home/${SUDO_USER}/.config/openbox
-		        chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/openbox/rc.xml
-		        chown -R ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/jgmenu
+		        cp -r /usr/share/lilidog/extras/jgmenu /home/"${SUDO_USER}"/.config &&
+		        mv /home/"${SUDO_USER}"/.config/openbox/rc.xml /home/"${SUDO_USER}"/.config/openbox/rc.xml.bak &&
+		        cp -r /usr/share/lilidog/extras/openbox/rc.xml /home/"${SUDO_USER}"/.config/openbox
+		        chown "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/openbox/rc.xml
+		        chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/jgmenu
                 sed -i '/Openbox/i    --field="                 Jgmenu Icons!jgmenu":FBTN "jg-icon-changer" \\' /usr/local/bin/beardog-themer
                 sed -i '/Openbox/i    --field="               Jgmenu Theme!jgmenu":FBTN "jg-menu-theme" \\' /usr/local/bin/beardog-themer 
-                openbox --reconfigure ;}
+                if xhost >& /dev/null ; then openbox --reconfigure
+                else echo "Not currently in X. Openbox restart deferred" ; fi }
         see_it
         no_see
         run_it
@@ -102,8 +105,8 @@ _add_notifications() {
       do_it() { cd /tmp &&
 		  curl -LJO https://raw.githubusercontent.com/sleekmason/packages/master/dunst.zip &&
           unzip -q dunst.zip &&
-          cp -r /tmp/dunst /home/${SUDO_USER}/.config
-          chown -R ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/dunst 
+          cp -r /tmp/dunst /home/"${SUDO_USER}"/.config
+          chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/dunst 
           apt-get update && apt-get install -y dunst 
           sed -i '/System/i    --field="                           Sounds!audio-speakers":FBTN "notification-sounds" \\' /usr/local/bin/beardog-themer ;}
         see_it
@@ -114,9 +117,9 @@ _add_notifications() {
 _add_transparency() {
       _msg="Add transparency with picom and enable at login?"
       do_it() { apt-get update && apt-get install --install-recommends -y picom &&
-		        cp /usr/share/lilidog/extras/picom.conf /home/${SUDO_USER}/.config
-		        sed -i '/tint2/i picom &' /home/${SUDO_USER}/.config/openbox/autostart
-		        chown ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/.config/picom.conf ;}
+		        cp /usr/share/lilidog/extras/picom.conf /home/"${SUDO_USER}"/.config
+		        sed -i '/tint2/i picom &' /home/"${SUDO_USER}"/.config/openbox/autostart
+		        chown "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/picom.conf ;}
         see_it
         no_see
         run_it
@@ -162,5 +165,5 @@ _upgrade_kernel
 _add_backports
 
 [ "$_interactive" = "yes" ] &&
- read -n1 -p " Press any key to quit this dialog ... " answ
+ read -r -n1 -p " Press any key to quit this dialog ... " answ
 echo
