@@ -166,4 +166,6 @@ _add_backports
 
 [ "$_interactive" = "yes" ] &&
  read -r -n1 -p " Press any key to quit this dialog ... " answ
+ if xhost >& /dev/null ; then exit
+else sed -i '/welcome.sh &/d' /home/"${SUDO_USER}"/.config/openbox/autostart && exit ; fi
 echo
