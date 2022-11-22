@@ -128,7 +128,7 @@ _add_conky() {
 		        unzip -q conky.zip &&
 		        cp -r /tmp/conky /home/"${SUDO_USER}"/.config &&
 		        chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/conky &&
-		        apt-get install --install-recommends -y conky-all
+		        apt-get install -y conky-all fortunes fortune-mod
 		        if egrep -q "Conky" /usr/local/bin/beardog-themer; then
                 exit
                 else
