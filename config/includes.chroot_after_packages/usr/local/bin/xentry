@@ -97,8 +97,8 @@ _add_jgmenu() {
 		        if egrep -q "Jgmenu" /usr/local/bin/beardog-themer; then
                 exit
                 else
-                sed -i '/Openbox/i    --field="                 Jgmenu Icons!jgmenu":FBTN "jg-icon-changer" \\' /usr/local/bin/beardog-themer
-                sed -i '/Openbox/i    --field="               Jgmenu Theme!jgmenu":FBTN "jg-menu-theme" \\' /usr/local/bin/beardog-themer
+                sed -i '/Openbox/i    --field="                  Jgmenu Icons!jgmenu":FBTN "jg-icon-changer" \\' /usr/local/bin/beardog-themer
+                sed -i '/Openbox/i    --field="                Jgmenu Theme!jgmenu":FBTN "jg-menu-theme" \\' /usr/local/bin/beardog-themer
                 fi
                 if xhost >& /dev/null ; then openbox --reconfigure
                 else echo "Not currently in X. Openbox restart deferred" ; fi }
@@ -115,7 +115,11 @@ _add_notifications() {
           cp -r /tmp/dunst/dunst /home/"${SUDO_USER}"/.config &&
           cp -a /tmp/dunst/scripts/. /usr/local/bin/ &&
           chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/dunst &&
-          apt-get update && apt-get install -y dunst ;}
+          apt-get update && apt-get install -y dunst
+          if egrep -q "Conky" /usr/local/bin/beardog-themer; then
+                exit
+                else
+		        sed -i '/System/i    --field="                             Conky!conky-logomark-violet":FBTN ".config/conky/scripts/conky-chooser" \\' /usr/local/bin/beardog-themer ; fi }
         see_it
         no_see
         run_it
@@ -129,10 +133,10 @@ _add_conky() {
 		        cp -r /tmp/conky /home/"${SUDO_USER}"/.config &&
 		        chown -R "${SUDO_USER}":"${SUDO_USER}" /home/"${SUDO_USER}"/.config/conky &&
 		        apt-get install -y conky-all fortunes fortune-mod
-		        if egrep -q "Conky" /usr/local/bin/beardog-themer; then
+		        if egrep -q "Sounds" /usr/local/bin/beardog-themer; then
                 exit
                 else
-		        sudo sed -i '/System/i    --field="                             Conky!conky-logomark-violet":FBTN ".config/conky/scripts/conky-chooser" \\' /usr/local/bin/beardog-themer ; fi }
+		        sed -i '/System/i    --field="                           Sounds!audio-headphones":FBTN "notification-sounds" \\' /usr/local/bin/beardog-themer ; fi }
         see_it
         no_see
         run_it
@@ -173,7 +177,7 @@ _remove_packages() {
 }
 
 _upgrade_kernel() {
-      _msg="Install backports kernel? - will Also add backports sources"
+      _msg="Install backports kernel and add backport sources?"
       do_it() { echo 'deb http://deb.debian.org/debian bullseye-backports main' | tee /etc/apt/sources.list.d/bullseye-backports.list &&
 		        apt-get update && apt-get install -y -t bullseye-backports linux-image-amd64 firmware-linux ;}
         see_it
