@@ -54,7 +54,7 @@ no_see() {
 
 run_it() {
 	[ "$_interactive" != "yes" ] && [ "$_quiet" != "yes" ] && (
-	echo -e "\n $_msg ." &&
+	echo -e "\n $_msg" &&
 	do_it &&
 	echo -e "[0;32m $_msg - Completed.[0m" )
 }
