@@ -13,11 +13,6 @@
 			</action>
 		</item>
 		<!-- This requires the presence of the 'openbox-menu' package to work -->
-		<item icon="/usr/share/icons/Adwaita/24x24/legacy/web-browser.png" label="Firefox">
-			<action name="Execute">
-				<execute>x-www-browser</execute>
-			</action>
-		</item>
 		<separator/>
 		<menu icon="/usr/share/icons/Adwaita/24x24/legacy/applications-accessories.png" id="root-menu-594711" label="Quick Grab">
 			<menu execute="pipe-recent-files" icon="/usr/share/icons/Adwaita/24x24/legacy/folder-visiting.png" id="ID41" label="Recent Files"/>
@@ -100,6 +95,11 @@
 			<item icon="/usr/share/icons/Adwaita/24x24/legacy/edit-cut.png" label="Kernel Remover">
 				<action name="Execute">
 					<execute>kernel-remover</execute>
+				</action>
+			</item>
+		<item icon="/usr/share/icons/Adwaita/24x24/legacy/preferences-other.png" label="Nvidia Installer">
+				<action name="Execute">
+					<execute>x-terminal-emulator -T 'Nvidia Drivers Installer' -e bash -c "nvidia-ddmmx-installer"</execute>
 				</action>
 			</item>
 		</menu>
