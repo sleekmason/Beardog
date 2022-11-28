@@ -70,6 +70,31 @@
 					<execute>toggle.tint2</execute>
 				</action>
 			</item>
+			<item icon="/usr/share/icons/Adwaita/24x24/legacy/object-flip-horizontal.png" label="Hotcorners">
+				<action name="Execute">
+					<execute>toggle.ld</execute>
+				</action>
+			</item>
+			<item icon="/usr/share/icons/Adwaita/24x24/legacy/object-flip-horizontal.png" label="Theme Options">
+					<action name="Execute">
+						<execute>beardog-themer</execute>
+					</action>
+				</item>
+			<item icon="/usr/share/icons/Adwaita/24x24/legacy/object-flip-horizontal.png" label="Touchpad">
+				<action name="Execute">
+					<execute>toggle-touchpad</execute>
+				</action>
+			</item>
+			<item icon="/usr/share/icons/Adwaita/24x24/legacy/object-flip-horizontal.png" label="Mouse Finder">
+				<action name="Execute">
+					<execute>toggle-mouse-pointer</execute>
+				</action>
+			</item>
+			<item icon="/usr/share/icons/Adwaita/24x24/legacy/object-flip-horizontal.png" label="Random BG">
+				<action name="Execute">
+					<execute>toggle-wallpaper-random</execute>
+				</action>
+			</item>
 			<item icon="/usr/share/icons/Adwaita/24x24/legacy/object-flip-horizontal.png" label="X-Kill">
 				<action name="Execute">
 					<execute>xkill</execute>
@@ -92,7 +117,12 @@
 					<execute>lxrandr</execute>
 				</action>
 			</item>
-			<item icon="/usr/share/icons/Adwaita/24x24/legacy/edit-cut.png" label="Kernel Remover">
+			<item icon="/usr/share/icons/Adwaita/24x24/legacy/drive-multidisk.png" label="Live USB Maker">
+				<action name="Execute">
+					<execute>x-terminal-emulator -T 'Live USB Maker' -e "sudo live-usb-maker-gui-antix"</execute>
+				</action>
+			</item>
+						<item icon="/usr/share/icons/Adwaita/24x24/legacy/edit-cut.png" label="Kernel Remover">
 				<action name="Execute">
 					<execute>kernel-remover</execute>
 				</action>
@@ -100,6 +130,11 @@
 		<item icon="/usr/share/icons/Adwaita/24x24/legacy/preferences-other.png" label="Nvidia Installer">
 				<action name="Execute">
 					<execute>x-terminal-emulator -T 'Nvidia Drivers Installer' -e bash -c "nvidia-ddmmx-installer"</execute>
+				</action>
+			</item>
+		<item icon="/usr/share/icons/Adwaita/24x24/legacy/applications-accessories.png" label="DkWM Installer">
+				<action name="Execute">
+					<execute>x-terminal-emulator -T 'dk Installer' -e bash -c "dk-installer"</execute>
 				</action>
 			</item>
 		</menu>
