@@ -117,9 +117,7 @@ tint2
 traceroute
 unzip
 update-inetd
-usb.ids
 usb-modeswitch
-usbmuxd
 usbutils
 usermode
 user-setup
