@@ -278,8 +278,8 @@ button = new
 button_icon = /usr/share/icons/ld-icons/coltint2grey/updater.png
 button_text = 
 button_tooltip = Updater
-button_lclick_command = x-terminal-emulator -T 'Apt Update' -e bash -c "sudo xupdate -i"
-button_rclick_command = x-terminal-emulator -T 'Apt Update' -e bash -c "sudo xupdate -i"
+button_lclick_command = lxterminal --geometry=68x20-80-80 -T 'Apt Updater' -e 'sudo xupdate -i'
+button_rclick_command = lxterminal --geometry=68x20-80-80 -T 'Apt Updater' -e 'sudo xupdate -i'
 button_mclick_command = 
 button_uwheel_command = 
 button_dwheel_command = 
