@@ -196,7 +196,7 @@ _add_backports() {
 
 _reboot() {
       _msg="Reboot? - After kernel or lightdm installation."
-      do_it() { reboot ;}
+      do_it() { sed -i '/welcome.sh &/d' /home/"${SUDO_USER}"/.config/openbox/autostart && reboot ;}
         see_it
         no_see
         run_it
