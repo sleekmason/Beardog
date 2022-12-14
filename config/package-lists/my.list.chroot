@@ -44,6 +44,7 @@ firmware-libertas
 firmware-misc-nonfree
 fuse3
 gettext-base
+gnome-icon-theme
 gnupg
 gparted
 gtk2-engines-murrine
@@ -138,6 +139,7 @@ xdg-desktop-portal-gtk
 xdg-user-dirs
 xdg-utils
 xdotool
+xfce4-power-manager
 xfce4-settings
 xinput
 xml-core
