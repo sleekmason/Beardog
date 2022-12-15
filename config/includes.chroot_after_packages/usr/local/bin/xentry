@@ -119,7 +119,7 @@ _add_notifications() {
           if egrep -q "Conky" /usr/local/bin/beardog-themer; then
                 exit
                 else
-		        sed -i '/System/i    --field="                             Conky!conky-logomark-violet":FBTN ".config/conky/scripts/conky-chooser" \\' /usr/local/bin/beardog-themer ; fi }
+		        sed -i '/System/i    --field="                           Sounds!audio-headphones":FBTN "notification-sounds" \\' /usr/local/bin/beardog-themer ; fi }
         see_it
         no_see
         run_it
@@ -136,7 +136,7 @@ _add_conky() {
 		        if egrep -q "Sounds" /usr/local/bin/beardog-themer; then
                 exit
                 else
-		        sed -i '/System/i    --field="                           Sounds!audio-headphones":FBTN "notification-sounds" \\' /usr/local/bin/beardog-themer ; fi }
+		        sed -i '/System/i    --field="                             Conky!conky-logomark-violet":FBTN ".config/conky/scripts/conky-chooser" \\' /usr/local/bin/beardog-themer ; fi }
         see_it
         no_see
         run_it
