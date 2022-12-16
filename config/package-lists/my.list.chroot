@@ -45,6 +45,7 @@ firmware-misc-nonfree
 fuse3
 gettext-base
 gnome-icon-theme
+gnome-themes-extra
 gnupg
 gparted
 gtk2-engines-murrine
