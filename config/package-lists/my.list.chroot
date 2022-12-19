@@ -42,6 +42,7 @@ firmware-linux
 firmware-linux-free
 firmware-libertas
 firmware-misc-nonfree
+firmware-sof-signed
 fuse3
 gettext-base
 gnome-icon-theme
@@ -125,7 +126,6 @@ usermode
 user-setup
 uuid-runtime
 va-driver-all
-vdpau-driver-all
 wget
 wmctrl
 x11-apps
