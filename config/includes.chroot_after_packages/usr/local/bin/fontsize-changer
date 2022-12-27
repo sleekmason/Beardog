@@ -2,52 +2,52 @@
 # font size changer - Changes all fonts one level up or down, and resets to the system default
 # Made be sleekmason for Lilidog 6-10-2022
 noti=$(yad --width 348  --borders=4 --entry --title "Font Size Changer" --center --window-icon=applications-system \
-    --image="preferences-desktop-font" --text "\n     System, Openbox, and Menu Font.\n     Defaults to DejaVu Sans." \
+    --image="preferences-desktop-font" --text "     System, Openbox, and Menu Font.\n     Defaults to Sans." \
     --entry-text \
-    "Please Select Your Desired Font Size " "Smallest" "Smaller" "Small" "Medium - Default Size" "Large" "Larger" "Largest")
+    "Please Select Your Desired Font Size " "8" "9" "10" "11 - Default Size" "12" "13" "14")
 
 case $noti in
-  Smallest) 
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 8"
+  8) 
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 8"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 7"
-sed -i "s/font =.*/font = DejaVu Sans 9/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 9/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "9" ~/.config/openbox/rc.xml
 ;;
-  Smaller) 
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 9"
+  9) 
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 9"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 8"
-sed -i "s/font =.*/font = DejaVu Sans 9/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 9/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "10" ~/.config/openbox/rc.xml
 ;;
-  Small)
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 10"
+  10)
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 10"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 9"
-sed -i "s/font =.*/font = DejaVu Sans 10/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 10/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "11" ~/.config/openbox/rc.xml
 ;;
-  Medium*)
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 11"
+  11*)
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 11"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 10"
-sed -i "s/font =.*/font = DejaVu Sans 11/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 11/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "12" ~/.config/openbox/rc.xml
 ;;
-  Large)
+  12)
 ## Set system Fonts
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 12"
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 12"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 11"
-sed -i "s/font =.*/font = DejaVu Sans 12/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 12/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "13" ~/.config/openbox/rc.xml
 ;;
-  Larger)
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 13"
+  13)
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 13"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 12"
-sed -i "s/font =.*/font = DejaVu Sans 13/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 13/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "14" ~/.config/openbox/rc.xml
 ;;
-  Largest)
-xfconf-query -c xsettings -p /Gtk/FontName -s "DejaVu Sans 14"
+  14)
+xfconf-query -c xsettings -p /Gtk/FontName -s "Sans 14"
 xfconf-query -c xsettings -p /Gtk/MonospaceFontName -s "Monospace 13"
-sed -i "s/font =.*/font = DejaVu Sans 14/g" ~/.config/jgmenu/jgmenurc
+sed -i "s/font =.*/font = Sans 14/g" ~/.config/jgmenu/jgmenurc
 xmlstarlet ed -L -N o="http://openbox.org/3.4/rc" -u '/o:openbox_config/o:theme/o:font/o:size' -v "15" ~/.config/openbox/rc.xml
 ;;
         *) exit 1 ;;
