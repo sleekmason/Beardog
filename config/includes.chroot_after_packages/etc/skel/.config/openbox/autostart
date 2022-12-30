@@ -31,11 +31,11 @@
 
 ### Common startup programs. Comment any item no longer wanted.
 . $HOME/.fehbg &
-tint2 &
-xfce4-power-manager &
+tint2 >/dev/null 2>&1 &
+xfce4-power-manager >/dev/null 2>&1 &
 nm-applet &
 lxpolkit &
 xfsettingsd --daemon &
-pnmixer &
+pnmixer >/dev/null 2>&1 &
 sxhkd -c "$HOME/.config/openbox/sxhkdrc-open" &
 welcome.sh &
