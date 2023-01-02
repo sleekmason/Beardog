@@ -56,9 +56,7 @@ gvfs-backends
 gvfs-fuse
 intel-microcode
 isc-dhcp-client
-iw
 kbd
-krb5-locales
 libavcodec-extra
 libexo-2-0
 libfile-mimeinfo-perl
