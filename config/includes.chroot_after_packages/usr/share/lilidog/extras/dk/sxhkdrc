@@ -135,6 +135,10 @@ alt + shift + q
 alt + shift + r
 	$HOME/.config/dk/dkrc
 
+# restart dk
+alt + ctrl + shift + r
+	dkcmd restart
+
 # focus next or previous window
 alt + {j,k}
 	dkcmd win focus {next,prev}
