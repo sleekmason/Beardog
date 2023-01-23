@@ -66,6 +66,7 @@ liblockfile-bin
 libnotify-bin
 libnss-systemd
 libqt5svg5
+librsvg2-common
 locales
 lsb-release
 lxpolkit
