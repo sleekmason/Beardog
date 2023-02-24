@@ -3,7 +3,7 @@
 
 # This List as a cheatsheet.txt
 mod4 + l
-    mousepad ~/.config/dk/keys-cheatsheet.txt
+    geany ~/.config/dk/keys-cheatsheet.txt
 
 # jgmenu
 mod4 + F1
@@ -74,29 +74,29 @@ mod4 + u
 
 # terminal
 mod4 + Return
-	lxterminal
+	xfce4-terminal
 
 mod4 + t
-    lxterminal
+    xfce4-terminal
     
 # File manager	
 mod4 + f
-    pcmanfm
+    thunar
 
 # Editor
 mod4 + e
-    mousepad  
+    geany  
 
 # Music
 mod4 + m
     pragha
     
 # Backgounds
-mod4 + b
+mod4 + v
     feh-set-wallpaper
     
 # Browser
-mod4 + w
+mod4 + b
     firefox-esr
     
 # kill current window. Carefull here!

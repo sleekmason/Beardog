@@ -4,7 +4,7 @@
 
 # This List as a cheatsheet.txt
 mod4 + l
-    mousepad ~/.config/openbox/keys-cheatsheet.txt
+    geany ~/.config/openbox/keys-cheatsheet.txt
     
 # Openbox Keybinds
 mod4 + o
@@ -47,29 +47,29 @@ mod4 + u
 
 # terminal
 mod4 + Return
-	lxterminal
+	xfce4-terminal
 
 mod4 + t
-    lxterminal
+    xfce4-terminal
     
 # File Manager	
 mod4 + f
-    pcmanfm
+    thunar
 
 # Editor
 mod4 + e
-    mousepad 
+    geany  
 
 # Music
 mod4 + m
     pragha
 
-# Backgounds
-mod4 + b
+# Wallpaper
+mod4 + v
     feh-set-wallpaper
     
 # Browser
-mod4 + w
+mod4 + b
     firefox-esr
 
 # Logout
