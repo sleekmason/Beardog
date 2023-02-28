@@ -15,7 +15,7 @@ lb config noauto \
      --firmware-chroot 'true' \
      --security 'true' \
      --memtest 'none' \
-     --image-name 'Beardog-Bullseye-23.02.24' \
+     --image-name 'Beardog-Bullseye-23.02.28' \
      --iso-application 'Beardog' \
      --iso-publisher 'Beardog GNU/Linux' \
      --iso-volume 'Beardog' \
