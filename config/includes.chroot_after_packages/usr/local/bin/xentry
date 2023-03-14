@@ -162,6 +162,7 @@ _add_installers() {
 		  if egrep -q "Installers" /usr/local/bin/beardog-themer; then
                 exit
                 else
+                sed -i '/Apt Update/a       --field="            Installers!preferences-system":FBTN "ld-installers" \\' /usr/local/bin/tint2-updates
                 sed -i '/Openbox/i    --field="                        Installers!preferences-system":FBTN "ld-installers" \\' /usr/local/bin/beardog-themer ; fi }
         see_it
         no_see
